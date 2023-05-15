@@ -1,0 +1,26 @@
+name: test
+on: push
+jobs:
+  setup:
+    runs-on: ${{ matrix.os }}
+    stretegy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v3
+      - run: make setup
+
+  test:
+    runs-on: ${{ matrix.os }}
+    stretegy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    needs: setup
+    - run: make test
+  lint:
+    runs-on: ${{ matrix.os }}
+    stretegy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    - uses: actions/checkout@v3
+    - run: make lint
