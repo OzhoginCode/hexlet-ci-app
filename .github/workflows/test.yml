@@ -16,7 +16,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
     steps:
-      - run: make test
+      - run: npm test
   lint:
     needs: setup
     runs-on: ${{ matrix.os }}
@@ -25,4 +25,4 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     steps:
       - uses: actions/checkout@v3
-      - run: make lint
+      - run: npx eslint .
