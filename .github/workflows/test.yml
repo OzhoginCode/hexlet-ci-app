@@ -19,8 +19,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           cache: 'npm'
-      - uses: actions/checkout@v3
       - run: make setup
       - run: make test
       - run: make lint
-      
