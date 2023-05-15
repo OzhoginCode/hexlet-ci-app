@@ -9,8 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: make setup
-
-  test:
+  tests:
     runs-on: ${{ matrix.os }}
     stretegy:
       matrix:
