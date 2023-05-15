@@ -3,7 +3,7 @@ on: [push]
 jobs:
   setup:
     runs-on: ${{ matrix.os }}
-    stretegy:
+    strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
     steps:
@@ -12,14 +12,16 @@ jobs:
   tests:
     needs: setup
     runs-on: ${{ matrix.os }}
-    stretegy:
+    strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-    - run: make test
+    steps:
+      - run: make test
   lint:
     runs-on: ${{ matrix.os }}
-    stretegy:
+    strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-    - uses: actions/checkout@v3
-    - run: make lint
+    steps:
+      - uses: actions/checkout@v3
+      - run: make lint
