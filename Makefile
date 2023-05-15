@@ -1,6 +1,7 @@
 setup: install build
 
-@if [ ! -d "node_modules" ]; then \
+install:
+	@if [ ! -d "node_modules" ]; then \
 		npm install; \
 	fi
 
