@@ -14,11 +14,11 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 16
-        cache: 'npm'
     steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
       - uses: actions/checkout@v3
       - run: make setup
       - run: make test
