@@ -9,20 +9,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: make setup
-  tests:
-    needs: setup
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    steps:
-      - run: npm test
-  lint:
-    needs: setup
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    steps:
-      - uses: actions/checkout@v3
-      - run: npx eslint .
+      - run: make test
+      - run: make lint
